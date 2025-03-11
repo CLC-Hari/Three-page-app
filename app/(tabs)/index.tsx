@@ -1,10 +1,6 @@
 import React from "react";
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-} from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
+import { SimpleLineIcons } from "@expo/vector-icons";
 
 export default function App() {
   return (
@@ -18,7 +14,7 @@ export default function App() {
         </View>
 
         <View style={styles.centerContainer}>
-          <Text style={styles.title}>This Week: Mar 9 - 15</Text>
+          <Text style={styles.title}>This Week</Text>
         </View>
 
         <View style={styles.rightContainer}></View>
@@ -28,8 +24,49 @@ export default function App() {
         <Text style={[styles.tabText, styles.activeTab]}>Work To Do</Text>
         <Text style={styles.tabText}>Events</Text>
         <Text style={styles.tabText}>All</Text>
-
       </View>
+
+      <View style={styles.calendar}>
+        <View style={styles.calendarSection}>
+          <Text style={styles.calendarSectionText}>SUN</Text>
+          <Text style={styles.calendarSectionText}>12</Text>
+        </View>
+        <View style={styles.calendarSection}>
+          <Text style={styles.calendarSectionText}>MON</Text>
+          <Text style={[styles.calendarSectionText, styles.calendarSectionTextActive]}>13</Text>
+        </View>
+        <View style={styles.calendarSection}>
+          <Text style={styles.calendarSectionText}>TUE</Text>
+          <Text style={styles.calendarSectionText}>14</Text>
+        </View>
+        <View style={styles.calendarSection}>
+          <Text style={styles.calendarSectionText}>WED</Text>
+          <Text style={styles.calendarSectionText}>15</Text>
+        </View>
+        <View style={styles.calendarSection}>
+          <Text style={styles.calendarSectionText}>THU</Text>
+          <Text style={styles.calendarSectionText}>16</Text>
+        </View>
+        <View style={styles.calendarSection}>
+          <Text style={styles.calendarSectionText}>FRI</Text>
+          <Text style={styles.calendarSectionText}>17</Text>
+        </View>
+        <View style={styles.calendarSection}>
+          <Text style={styles.calendarSectionText}>SAT</Text>
+          <Text style={styles.calendarSectionText}>18</Text>
+        </View>
+      </View>
+
+      <View style={styles.dayChanger}>
+        <SimpleLineIcons name="arrow-left" size={14} color="black"/>
+        <Text style={styles.dayChangerText}>Monday, March 13, 2025</Text>
+        <SimpleLineIcons name="arrow-right" size={14} color="black"/>
+      </View>
+
+      <View style={styles.upcoming}>
+        <Text style={styles.upcomingText}>Nothing going on right now...</Text>
+      </View>
+
     </View>
   );
 }
@@ -86,24 +123,68 @@ const styles = StyleSheet.create({
   },
 
   tabs: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
+    borderBottomColor: "#ddd",
   },
   tabText: {
     fontSize: 16,
     paddingVertical: 10,
     paddingHorizontal: 20,
-    color: 'gray',
-    textAlign: 'center',
+    color: "gray",
+    textAlign: "center",
     flex: 1,
   },
   activeTab: {
-    color: '#008B8B',
+    color: "#008B8B",
     borderBottomWidth: 2,
-    borderBottomColor: '#008B8B',
+    borderBottomColor: "#008B8B",
   },
-
-  
+  calendar: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    borderColor: "#ddd",
+    borderWidth: 1,
+  },
+  calendarSection: {
+    width: "14.28%",
+    padding: 10,
+    borderColor: "#ddd",
+    borderWidth: 1,
+    minHeight: 250,
+  },
+  calendarSectionText: {
+    fontSize: 11,
+    textAlign: "center",
+    fontWeight: "bold",
+  },
+  calendarSectionTextActive: {
+    backgroundColor: "#008B8B",
+    color: "#fff",
+    borderRadius: 50,
+  },
+  dayChanger: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    paddingVertical: 5,
+    borderColor: "#ddd",
+    borderBottomWidth: 1,
+  },
+  dayChangerText: {
+    fontSize: 14,
+    fontWeight: "semibold",
+  },
+  upcoming: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  upcomingText: {
+    fontSize: 16,
+    color: "gray",
+  },
 });
